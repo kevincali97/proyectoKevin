@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <h:outputStylesheet library="css" name="login.css"/>
+        <title>actualizar contraseña</title>
+    </h:head>
+    <h:body>
+      
+           <div id="content" class="contenedor-form">
+       <h:form id="formLogin">
+            <p:growl id="growl" showDetail="true" sticky="true" />  
+                  
+                    <p:panel header="Actualizar contraseña">
+                        <p:password id="actual" value="#{actualizapassBean.pass}" required="true" label="Contraseña actual" a:placeholder="Contraseña Actual"/>
+                            
+                        <p:password id="newpassword" value="#{actualizapassBean.newPass}" required="true" label="Nueva Contraseña" a:placeholder="Nueva Contraseña"/>
+                        <p:commandButton value="Actualizar" update="growl" action="#{actualizapassBean.actualiza()}"
+                                             oncomplete="handleLoginRequest(xhr, status, args)" icon="ui-icon-key"/>
+                         
+                            </p:panel>
+                </h:form>
+                <script type="text/javascript">
+                    function handleLoginRequest(xhr, status, args) {
+                        if (args.validationFailed || !args.loggedIn) {
+                            jQuery('#formLogin').effect("shake", {times: 3}, 100);
+
+                        } else {
+                            location.href = args.ruta;
+                        }
+                    }
+                </script>
+           </div>
+    </h:body>
+</html>
+

@@ -42,6 +42,38 @@ controller.add = (req,res)=>{
         });
     };
 
+    controller.updateNews= (req,res)=>{
+   
+        const id=req.params.id_noticia
+    
+        res.render ('actualizaN', {
+            actualiza:id
+        
+        });
+        
+    }
+    
+    controller.ActualizarN = (req,res)=>{
+        const {title,news,id_news} =req.body;
+        
+        
+            conn.query('UPDATE news SET title = ?, news = ? where id_news = ?',
+            [title,news,id_news]
+            
+            ,(err,result)=>{
+    
+            if(err){
+    
+            res.json(err);
+        }
+    
+            res.redirect('/news');
+           
+        });
+        
+    }
+    
+
 
    
    

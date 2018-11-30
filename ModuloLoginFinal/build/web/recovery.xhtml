@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <h:outputStylesheet library="css" name="login.css"/>
+        <title>Recovery</title>
+    </h:head>
+    <h:body>
+         <div id="content" class="contenedor-form">
+        <h:form id="formRecovery">
+                    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+                    <p:panel header="Recuperar contraseña" footer="Si el usuario y contraseña coinciden, recibirá un correo electrónico para recuperar su contraseña.">
+                        <p:inputText id="username" value="#{recoveryBean.usuario}" required="true" label="username" a:placeholder="Usuario">
+                            <f:validateLength minimum="4" maximum="12" /></p:inputText>
+                        <p:inputText id="correo" value="#{recoveryBean.email}" required="true" label="correo Electronico" a:placeholder="Correo"/>
+                      
+                            
+                        <p:commandButton value="Recuperar" update="growl" action="#{recoveryBean.recuperarContrasena()}"
+                                             oncomplete="handleLoginRequest(xhr, status, args)" icon="ui-icon-extlink"/>
+                         
+  </p:panel>
+                </h:form>
+                <script type="text/javascript">
+                    function handleLoginRequest(xhr, status, args) {
+                        if (args.validationFailed || !args.loggedIn) {
+                            jQuery('#formRecovery').effect("shake", {times: 3}, 100);
+
+                        } else {
+                            location.href = args.ruta;
+                        }
+                    }
+                </script>
+         </div>
+    </h:body>
+</html>
+

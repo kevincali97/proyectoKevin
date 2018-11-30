@@ -10,4 +10,10 @@ router.get('/signup', usersController.signup);
 router.post('/signup', usersController.signup);
 router.get('/logout', usersController.logout);
 router.get('/ir', usersController.ir);
+router.get('/irUsuarios', usersController.irUsuarios);
+router.post('/users/Agregar', usersController.Agregar);
+router.get('/users/Eliminar/:id_usuario', usersController.Eliminar);
+router.get('/users/updateUsers/:id_usuario', usersController.updateUsers);
+router.post('/users/actulizarusu', usersController.Actualizarusu);
+
 module.exports= router;

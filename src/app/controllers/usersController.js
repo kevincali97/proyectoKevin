@@ -113,6 +113,102 @@ controller.ir = (req, res, next)=>{
 
 };
 
+controller.list= (req,res)=>{
+    conn.query('SELECT * FROM users', (err, result)=>{
+        if(err){
+            res.json(err);
+        }
+    res.render ('users', {
+        news:result
+    
+    });
+    });
+}
+
+controller.Agregar = (req,res)=>{
+    const {first_name,last_name,user_name,password} =req.body;
+    
+        conn.query('INSERT INTO users SET ?',
+    {
+        first_name,
+        last_name,
+        user_name,
+        password
+    }, (err,result)=>{
+        res.redirect('/irUsuarios');
+    });
+};
+
+controller.Eliminar = (req,res)=>{
+        
+
+    const id=req.params.id_usuario;
+        conn.query('DELETE from users where id = ?',
+   
+        id
+    
+    , (err,result)=>{
+        res.redirect('/irUsuarios');
+
+    });
+};
+
+
+controller.irUsuarios = (req, res, next)=>{
+
+    var user = req.session.user,
+    userId = req.session.userId;
+   
+    if(userId == null){
+    res.redirect("/login");
+    return;
+    }else{
+        conn.query('SELECT * FROM users', (err, result)=>{
+            if(err){
+                res.json(err);
+            }
+        res.render ('users', {
+            users:result
+        
+        });
+        });
+    }
+
+
+};
+
+
+controller.updateUsers= (req,res)=>{
+   
+    const id=req.params.id_usuario
+
+    res.render ('Ausuarios', {
+        actualizado:id
+    
+    });
+    
+}
+
+controller.Actualizarusu = (req,res)=>{
+    const {first_name,last_name,user_name,password,id} =req.body;
+    
+    
+        conn.query('UPDATE users SET first_name = ?, last_name = ?, user_name = ?, password = ? where id = ?',
+        [first_name, last_name, user_name, password,id]
+        
+        ,(err,result)=>{
+
+        if(err){
+
+        res.json(err);
+    }
+
+        res.redirect('/irUsuarios');
+       
+    });
+    
+}
+
 
 
 module.exports = controller;

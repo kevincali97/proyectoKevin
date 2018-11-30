@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+          <h:outputStylesheet library="css" name="login.css"/>
+        <title>Login</title>
+    </h:head>
+    <h:body>
+       
+           <div id="content" class="contenedor-form">
+       <h:form id="formLogin">
+            <p:growl id="growl" showDetail="true" sticky="true" />  
+                  
+                    <p:panel header="Iniciar Sesión">
+                        
+                        <p:inputText id="username" value="#{loginBean.usuario}" required="true" label="username" a:placeholder="Usuario">
+                            <f:validateLength minimum="4" maximum="12" /></p:inputText>
+                        <p:password id="password" value="#{loginBean.contrasena}" required="true" label="password" a:placeholder="Contraseña"/>
+                       <p:commandButton value="Ingresar" update="growl" action="#{loginBean.validateUsernamePassword()}"
+                                             oncomplete="handleLoginRequest(xhr, status, args)" icon="ui-icon-key"/>
+                         
+                            <f:facet name="footer"><p>Olvido la contraseña? <p:link outcome="recovery" value="click aquí"/></p>
+                                <p>Nuevo usuario? <p:link outcome="registro" value="Solicitar registro"/></p></f:facet>
+                                             
+                                 </p:panel>
+                </h:form>
+                <script type="text/javascript">
+                    function handleLoginRequest(xhr, status, args) {
+                        if (args.validationFailed || !args.loggedIn) {
+                            jQuery('#formLogin').effect("shake", {times: 3}, 100);
+
+                        } else {
+                            location.href = args.ruta;
+                        }
+                    }
+                </script>
+           </div>
+    </h:body>
+</html>
+

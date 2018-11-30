@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/web/index.xhtml</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/src/java/beans/ActualizarPassBean.java</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/src/java/util/HashedPasswordGenerator.java</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/web/user/actualizapassuser.xhtml</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/web/admin/admin.xhtml</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/web/registro.xhtml</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/web/accesodenegado.xhtml</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/src/java/Filtros/FiltroUser.java</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/web/login.xhtml</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/src/java/dao/LoginDao.java</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/web/user/user.xhtml</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/web/admin/actualizarpassadmin.xhtml</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/web/recovery.xhtml</file>
+            <file>file:/C:/Users/kevin/OneDrive/Escritorio/proyecto/ModuloLoginFinal/src/java/util/GenerarContrasena.java</file>
+        </group>
+    </open-files>
+</project-private>
